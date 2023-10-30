@@ -28,7 +28,7 @@ const Post = ({ id, title, content, author }: PostProps) => {
   };
 
   return (
-    <div className="w-full flex flex-col items-start md:w-[300px] border bg-white hover:bg-gray-50 ease-in duration-300 cursor-pointer shadow-md p-4 rounded-md md:my-2 border-gray-200">
+    <div className="w-full flex flex-col items-start md:w-[300px] h-[200px] max-h-[200px] border bg-white hover:bg-gray-50 ease-in duration-300 cursor-pointer shadow-md p-4 rounded-md md:my-2 border-gray-200">
       <p className="font-bold mb-2 text-xl text-APP_BLACK">{title}</p>
       <p className="font-light text-gray-700 text-[16px] flex-1">{content}</p>
 
