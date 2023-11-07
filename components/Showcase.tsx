@@ -1,5 +1,7 @@
 import { PostProps } from "@/types";
-import Post from "./Post";
+import { Suspense } from "react";
+import Post from "@/components/Post";
+import AppSkeleton from "./AppSkeleton";
 
 const getData = async () => {
   try {
@@ -14,6 +16,7 @@ const getData = async () => {
   }
 };
 
+
 const Showcase = async () => {
   const data: (PostProps | any)[] = await getData();
 
@@ -21,14 +24,18 @@ const Showcase = async () => {
     <section className="posts mt-4">
       {data.map((post) => {
         return (
-          <div key={post?._id} fallback={<p>loading...</p>}>
+          <Suspense
+            key={post?._id}
+            fallback={<AppSkeleton/>}
+          >
             <Post
-              title={post.title}
-              content={post.content}
-              author={post.author}
+              key={post?._id}
               id={post?._id}
+              author={post?.author}
+              content={post?.content}
+              title={post?.title}
             />
-          </div>
+          </Suspense>
         );
       })}
     </section>

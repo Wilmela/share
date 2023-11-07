@@ -5,12 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import { Button } from "./ui/button";
+import { ModeToggle } from "./ui/mode-toggle";
 
 const Navbar = () => {
   const [isToggled, setIsToggled] = useState(false);
   const [isActive, setIsActive] = useState("/");
   const { data, status } = useSession();
-  console.log(data?.user?.name)
+  console.log(data?.user?.name);
 
   // const pathname = usePathname();
   const isAuthenticated = status === "authenticated";
@@ -62,17 +64,23 @@ const Navbar = () => {
             </Link>
           );
         })}
-        {!isAuthenticated ? (
-          <Link href="/auth/sign-in">sign-in</Link>
-        ) : (
-          <button
-            type="button"
-            className="p-2 border border-green-500 rounded-md"
-            onClick={() => signOut()}
-          >
-            Sign-out
-          </button>
-        )}
+        <li>
+          {!isAuthenticated ? (
+            <Link href="/auth/sign-in">sign-in</Link>
+          ) : (
+            <Button
+              variant="secondary"
+              type="button"
+              className="p-2 border border-green-500 rounded-md"
+              onClick={() => signOut()}
+            >
+              Sign-out
+            </Button>
+          )}
+        </li>
+        <li>
+          <ModeToggle />
+        </li>
       </ul>
     </nav>
   );

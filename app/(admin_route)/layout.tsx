@@ -5,7 +5,7 @@ import { User } from "@/types";
 import { redirect } from "next/navigation";
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const session = await getServerSession(authOptions);
-  const user = session?.user as User | undefined;
+  const user = session?.user as User;
 
   if (user?.role !== "admin") redirect("/");
 

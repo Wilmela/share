@@ -1,10 +1,11 @@
-import { Hero, Showcase } from "@/components";
+import Hero from "@/components/Hero";
+import Showcase from "@/components/Showcase";
 
 const Home = () => {
   return (
     <div>
       <Hero />
-        {/* POSTS */}
+      {/* POSTS */}
       <Showcase />
     </div>
   );

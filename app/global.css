@@ -6,7 +6,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: #f0f6f6;
+  /* background-color: #f0f6f6; */
 }
 nav {
   @apply w-full px-6 md:px-8 lg:px-40 py-2 flex justify-between items-center;
@@ -22,9 +22,10 @@ nav__links {
   @apply font-bold text-5xl md:text-7xl md:text-center;
 }
 .bg-text {
-  background: linear-gradient(to bottom left, #48a9a6, rgb(86, 174, 246));
+  /* background: linear-gradient(to bottom left, #48a9a6, #56aef6);
   background-clip: text;
-  color: transparent;
+  color: transparent; */
+  @apply bg-gradient-to-tr from-[#48a9a6] via-[#42e468] to-[#56aef6] bg-clip-text text-transparent
 }
 .posts {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5;
